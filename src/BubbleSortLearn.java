@@ -156,7 +156,8 @@ public class BubbleSortLearn {
                 + "2-) Example Solution.\n"
                 + "3-) Take a test.\n";
         String islemSec = null;
-        while (islemSec != "exit") {
+        while (islemSec==null || !islemSec.equals("exit") ) {
+            System.out.println("islemsec : "+islemSec);
             System.out.println(Secenekler);
 
             System.out.println("Enter the number of the requested process.\n"
