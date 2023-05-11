@@ -1,24 +1,26 @@
 
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import java.util.Random;
 import java.util.Scanner;
 
 public class BubbleSortLearn {
 
     void BubbleSortNedir() {
-
+        String turkishName = "Kabarcik Siralamasi";
         System.out.println(" Bubble Sort Nedir ?  \n"
                 + "*************************************\n"
-                + " \033[0;31m Bubble Sort \033[0m : Turkcesi \033[0;31m Kabarcik Siralamasidir. \033[0m  Bir diziden Bastan baslayarak pes pese olan iki eleman\n "
-                + "siralanir buyuk olan sağa, kucuk olan sola yazilir. Amacimiz karsilastirilan iki sayida buyuk \n"
-                + "sayilari sağ tarafa, kucuk sayilari sol tarafa oteleyip sayilari kucukten buyuye doğru siralamaktir \n"
+                + " \033[0;31m Bubble Sort \033[0m : It is called \"\033[0;31m" + turkishName + "\033[0m\" in Turkish."
+                + "\n"
+                + "Given a sequence, consecutive pairs of elements are sorted such that\n"
+                + "the larger one is placed to the right and the smaller one to the left.\n"
                 + "*************************************"
-                + "\nNasil Calisir ? \n"
-                + "Mesela elimizde dizi[42"
-                + "]={5,1,-5,30} elemanlari bulunan bir dizimiz olsun "
-                + "Bunlar su sekilde islem gorerek siralanir\n"
-                + "  [5  1]  -5  30 --> [1 5]  -5  30 \n "
-                + " 1  [5  -5 ] 30 -->  1  [-5  5] 30 ... \n"
-                + "gibi gibi  devam eder  en sonunda da : -5  1  5  30  olarak siralanir  ");
+                + "\nHow does it work?\n"
+                + "For example: arr=[4]={5,1,-5,30}\n"
+                + "These values of array will be sorted as following process.\n"
+                + " [5  1]  -5  30 --> [1 5]  -5  30 \n"
+                + "  1  [5  -5 ] 30 -->  1  [-5  5] 30 ... \n"
+                + " and it will be sorted in following sequence\n"
+                + "-5  1  5  30.\n\n");
     }
 
     void OrnekSiralama() {
@@ -37,9 +39,13 @@ public class BubbleSortLearn {
                 }
             }
         }
+        StringBuilder arrText = new StringBuilder();
+        for (int index = 0; index < arr.length; index++) {
+            arrText.append(arr[index] + " ");
+        }
+        arrText.deleteCharAt(arrText.length() - 1);
 
-        System.out.println("Ornek dizimiz :  dizi[ornek]");
-
+        System.out.println("Example array :  arr[" + arrText + "]");
         for (i = 0; i < uzunluk - 1; i++) {
             for (j = 0; j < uzunluk - 1 - i; j++) {
                 String islemKontrol = "islem yapilmadi";   // eğer asağidaki if de islem gerceklesirse yazmak icin kullanilir yoksa 
@@ -55,7 +61,7 @@ public class BubbleSortLearn {
                     for (m = 0; m < uzunluk; m++) {
                         System.out.print(arr[m] + " ");
                     }
-                    System.out.print(" ->  karsilastirilan sayilar [ " + arr[j + 1] + " " + arr[j] + " ]  \033[0;32m Duzeltilmis hali  "
+                    System.out.print(" ->  comparing numbers [ " + arr[j + 1] + " " + arr[j] + " ]  \033[0;32m Updated as "
                             + "-->[ " + arr[j] + " " + arr[j + 1] + " ] \033[0m");    // \033[0;32m gibi degisik seyler renk kodlari 
                     System.out.println();
                 } else {
@@ -87,13 +93,13 @@ public class BubbleSortLearn {
             }
         }
 
-        System.out.println("Siralanacak dizi: ");
-        System.out.print("[ ");
-        for (i = 0; i < uzunluk; i++) {
-            System.out.print(" " + arr[i] + " ");
-        }
-        System.out.print(" ]");
-        System.out.println("Şimdi bu dizide ornekteki gibi karsilastirilan iki sayiyi yaziniz ");
+        System.out.println("Array will be sorted : ");
+//        System.out.print("[ ");
+//        for (i = 0; i < uzunluk; i++) {
+//            System.out.print(" " + arr[i] + " ");
+//        }
+//        System.out.print(" ]");
+//        System.out.println(" Enter 2 number as done in \"Example Solution\"");
 
         for (i = 0; i < uzunluk - 1; i++) {
             for (j = 0; j < uzunluk - 1 - i; j++) {
@@ -104,7 +110,7 @@ public class BubbleSortLearn {
                 }
                 System.out.println(" ]");
                 {
-                    System.out.print("Siradaki iki sayiyi karsilastirilip doğrusunu yaziniz : ");
+                    System.out.print("Compare next two numbers, and type in correct format order: ");
                     System.out.print("");
 
                     int cevap1 = scanner.nextInt();
@@ -118,7 +124,7 @@ public class BubbleSortLearn {
                         System.out.println(" \033[0;36m ✓ \033[0m");
                     } else {
                         java.awt.Toolkit.getDefaultToolkit().beep();     //Hata yapildiğinda bip sesi cikarmasini saglar
-                        System.out.println("\033[0;31m" + "Malesef hata yaptiniz !!!" + "\033[0;32m" + "  Doğrusu : " + "[ \033[0;34m " + arr[j] + " " + arr[j + 1] + "  \033[0;32m ]" + "\033[0m");
+                        System.out.println("\033[0;31m" + "X" + "\033[0;32m" + " Correct : " + "[ \033[0;34m " + arr[j] + " " + arr[j + 1] + "  \033[0;32m ]" + "\033[0m");
 
                         System.out.println(" ]");
                         System.out.println();
@@ -127,33 +133,34 @@ public class BubbleSortLearn {
                 }
             }
         }
-        System.out.print("\033[0;35m  ✓ ✓ ✓  Dizimiz tamamlandi ✓ ✓ ✓  \033[0m ");
-        System.out.print(" \033[0;34m Dizimizin Siralanmis hali [ ");
+        System.out.println("\033[0;35m  ✓ ✓ ✓  Array is sorted ✓ ✓ ✓  \033[0m ");
+        StringBuilder sortedArr = new StringBuilder();
         for (m = 0; m < uzunluk; m++) {
-            System.out.print(arr[m] + " ");
+            sortedArr.append(arr[m] + " ");
         }
-        System.out.println(" ]");
-        System.out.println("                            \033[0;31m  ... Tebrikler  \033[0m ");
+        sortedArr.deleteCharAt(sortedArr.length() - 1);
+        System.out.println(" \033[0;34m The sorted array is  [" + sortedArr + "]");
+        System.out.println("\033[0;31m  ... Congratulations  \033[0m ");
     }
 
     public static void main(String[] args) {
         //public static final String BLUE = "\033[0;34m";    // BLUE
         System.out.println("\033[0;34m" + " Merhaba" + "\033[0m");
-        System.out.println("\033[0;31m Kabarcik Siralamasidir. \033[0m");
+//        System.out.println("\033[0;31m Kabarcik Siralamasidir. \033[0m");
         int[] kkk = new int[5];
 
         BubbleSortLearn calisma = new BubbleSortLearn();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("!!! *** Oncelikle Programa hosgeldiniz *** !!!");
-        String Secenekler = "1-) Nedir bu BubbleSort? Ne ise yarar\n"
-                + "2-) Ornek Cozum\n"
-                + "3-) Soru Cozumu\n";
+        System.out.println("!!! *** Welcome to BubbleSort Tutorial *** !!!");
+        String Secenekler = "1-) What is BubbleSort? How does it work?\n"
+                + "2-) Example Solution.\n"
+                + "3-) Take a test.\n";
         String islemSec = null;
-        while (islemSec != "cikis") {
+        while (islemSec != "exit") {
             System.out.println(Secenekler);
 
-            System.out.println("Yukaridakilerden islemlerden hangisini istiyorsaniz lutfen onun numarasini giriniz.\n"
-                    + "Not : Cikis icin cikis yaziniz ");
+            System.out.println("Enter the number of the requested process.\n"
+                    + "Not : Type `exit` to end program. ");
 
             islemSec = scanner.nextLine();
             switch (islemSec) {
@@ -166,7 +173,7 @@ public class BubbleSortLearn {
                     break;
 
                 case "3":
-                    System.out.println("Dizi uzunluğunu giriniz ");
+                    System.out.print("Enter array lenght :");
                     int uzunluk = scanner.nextInt();
                     scanner.nextLine(); //Dummy code
 
