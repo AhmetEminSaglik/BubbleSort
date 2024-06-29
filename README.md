@@ -53,7 +53,7 @@ The project was created to learn and make any user learn how Bubble Sort works. 
 <h2 id="requirement">5-) Requirements</h2>
 
 * <a href="https://www.oracle.com/tr/java/technologies/javase/jdk11-archive-downloads.html">JDK 11</a>
-* IDE (One of them is enough.)
+* IDE (One of them is enough)
   *  <a href="https://www.jetbrains.com/idea/download/?section=windows"> Intelij IDEA (Community Edition) </a>
   *  <a href="https://netbeans.apache.org/front/main/download/index.html">NetBeans IDE</a>
 
@@ -66,7 +66,7 @@ git clone https://github.com/AhmetEminSaglik/BubbleSort.git
 ```
 2-) Then copy and paste the following command in your cmd. (Colorful characters will be printed meaningless in CMD)
 ```
-java -jar BubbleSort/BubbleSort.jar
+java -jar BubbleSort/BubbleSortLearn.jar
 ```
 
 <h2 id="installation">7-) Installation </h2>
